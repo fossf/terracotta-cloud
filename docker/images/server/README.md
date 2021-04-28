@@ -14,7 +14,11 @@ The Terracotta 10.x EE offering includes the following:
 
 ##### Quick start : one active node
 
+<<<<<<< HEAD
     docker run -e ACCEPT_EULA=Y --name terracotta --hostname terracotta -p 9410:9410 -d terracotta-server:10.11
+=======
+    docker run -e ACCEPT_EULA=Y --name terracotta --hostname terracotta -p 9410:9410 -d terracotta-server:10.7
+>>>>>>> a072e15b3b95bba03aeb6c4fcb0bdc2133d8f654
 
 A quick look at the logs :
 
@@ -30,5 +34,10 @@ It's now ready to be configured using config-tool !
 
 To build this Dockerfile
 
+<<<<<<< HEAD
     $ cd terracotta-10.11.0-SNAPSHOT
     $ docker build --file docker/images/server/Dockerfile --tag terracotta-server:10.11.0-SNAPSHOT .
+=======
+    $ cd terracotta-10.7.0-SNAPSHOT
+    $ docker build --file docker/images/server/Dockerfile --tag terracotta-server:10.7.0-SNAPSHOT .
+>>>>>>> a072e15b3b95bba03aeb6c4fcb0bdc2133d8f654

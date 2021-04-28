@@ -16,6 +16,10 @@ Those scripts will help you find out, they basically:
 ## How to run them
 
 ```bash
+<<<<<<< HEAD
 export VERSION=10.11.0-SNAPSHOT
+=======
+export VERSION=10.7.0-SNAPSHOT
+>>>>>>> a072e15b3b95bba03aeb6c4fcb0bdc2133d8f654
 ./smoke-test.sh
 ```

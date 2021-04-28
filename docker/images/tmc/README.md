@@ -9,7 +9,11 @@ The Terracotta Management Console (TMC) is a web-based administration and monito
 
 You can now run the TMC in a container :
 
+<<<<<<< HEAD
      docker run -e ACCEPT_EULA=Y -d -p 9480:9480 --name tmc tmc:10.11.0-SNAPSHOT
+=======
+     docker run -e ACCEPT_EULA=Y -d -p 9480:9480 --name tmc tmc:10.7.0-SNAPSHOT
+>>>>>>> a072e15b3b95bba03aeb6c4fcb0bdc2133d8f654
 
 At this point go to http://localhost:9480/ from the host machine to see the TMC welcome page
 
@@ -19,6 +23,7 @@ Of course, having a TMC running only makes sense if you have a Terracotta Server
 
 If you have already built the terracotta docker image, then, start it :
 
+<<<<<<< HEAD
     docker run -e ACCEPT_EULA=Y -d -p 9410:9410 --name terracotta terracotta-server:10.11.0-SNAPSHOT
 
 Don't forget to install a license using the cluster tool :
@@ -28,6 +33,17 @@ Don't forget to install a license using the cluster tool :
 and then re try running the tmc, with :
 
     docker run -e ACCEPT_EULA=Y -d -p 9480:9480 --name tmc --link terracotta:terracotta tmc:10.11.0-SNAPSHOT
+=======
+    docker run -e ACCEPT_EULA=Y -d -p 9410:9410 --name terracotta terracotta-server:10.7.0-SNAPSHOT
+
+Don't forget to install a license using the cluster tool :
+
+    docker run -e ACCEPT_EULA=Y --link terracotta:terracotta -e "LICENSE_URL=https://server/license.xml" terracotta-cluster-tool:10.7.0-SNAPSHOT configure -n MyCluster -s terracotta
+
+and then re try running the tmc, with :
+
+    docker run -e ACCEPT_EULA=Y -d -p 9480:9480 --name tmc --link terracotta:terracotta tmc:10.7.0-SNAPSHOT
+>>>>>>> a072e15b3b95bba03aeb6c4fcb0bdc2133d8f654
 
 and checkout what's happening with :
 
@@ -41,5 +57,10 @@ Or else, I suggest you to move on to the orchestration folder and use Docker com
 
 Once Docker is up and running in your environment, from the root folder (/opt/softwareag for example) run this command :
 
+<<<<<<< HEAD
     $ cd terracotta-10.11.0-SNAPSHOT
     $ docker build --file docker/images/tmc/Dockerfile --tag tmc:10.11.0-SNAPSHOT .
+=======
+    $ cd terracotta-10.7.0-SNAPSHOT
+    $ docker build --file docker/images/tmc/Dockerfile --tag tmc:10.7.0-SNAPSHOT .
+>>>>>>> a072e15b3b95bba03aeb6c4fcb0bdc2133d8f654

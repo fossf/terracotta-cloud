@@ -13,7 +13,11 @@ The client will either insert or retrieve values every 0.1 seconds
 
 You can start it up simply with :
 
+<<<<<<< HEAD
     docker run -e ACCEPT_EULA=Y --name client -d sample-tcstore-client:10.11.0-SNAPSHOT
+=======
+    docker run -e ACCEPT_EULA=Y --name client -d sample-tcstore-client:10.7.0-SNAPSHOT
+>>>>>>> a072e15b3b95bba03aeb6c4fcb0bdc2133d8f654
 
 But you would get such an error message :
 
@@ -28,6 +32,7 @@ That would be because you need a Terracotta server running.
 
 You can run a terracotta server using (provided you built the terracotta image) :
 
+<<<<<<< HEAD
     docker run -e ACCEPT_EULA=Y -d -p 9410:9410 --name terracotta terracotta-server:10.11.0-SNAPSHOT
 
 Don't forget to install a license using the cluster tool :
@@ -37,6 +42,17 @@ Don't forget to install a license using the cluster tool :
 and then re try running the client, with :
 
     docker run -e ACCEPT_EULA=Y -d --link terracotta:terracotta --name store-client sample-tcstore-client:10.11.0-SNAPSHOT
+=======
+    docker run -e ACCEPT_EULA=Y -d -p 9410:9410 --name terracotta terracotta-server:10.7.0-SNAPSHOT
+
+Don't forget to install a license using the cluster tool :
+
+    docker run -e ACCEPT_EULA=Y --link terracotta:terracotta -e "LICENSE_URL=https://server/license.xml" terracotta-cluster-tool:10.7.0-SNAPSHOT configure -n MyCluster -s terracotta
+
+and then re try running the client, with :
+
+    docker run -e ACCEPT_EULA=Y -d --link terracotta:terracotta --name store-client sample-tcstore-client:10.7.0-SNAPSHOT
+>>>>>>> a072e15b3b95bba03aeb6c4fcb0bdc2133d8f654
 
 and checkout what's happening with :
 
@@ -47,5 +63,10 @@ and checkout what's happening with :
 
 To build this Dockerfile
 
+<<<<<<< HEAD
     $ cd terracotta-10.11.0-SNAPSHOT
     $ docker build --file docker/images/sample-tcstore-client/Dockerfile --tag sample-tcstore-client:10.11.0-SNAPSHOT .
+=======
+    $ cd terracotta-10.7.0-SNAPSHOT
+    $ docker build --file docker/images/sample-tcstore-client/Dockerfile --tag sample-tcstore-client:10.7.0-SNAPSHOT .
+>>>>>>> a072e15b3b95bba03aeb6c4fcb0bdc2133d8f654
